@@ -1,0 +1,102 @@
+@baseURL = http://localhost:8080
+@contentType = "application/json"
+
+### Healthz
+GET {{baseURL}}/api/healthz
+
+### Valid Chirp
+POST {{baseURL}}/api/validate_chirp
+Content-Type: {{contentType}}
+
+{
+  "body": "I really need a kerfuffle to go to bed sooner, Fornax !"
+}
+
+### Invalid Chirp
+POST {{baseURL}}/api/validate_chirp
+Content-Type: {{contentType}}
+
+{
+  "body": "This is an opinion I need to share with the world and even larger experience to throw and error this is even 140? or I have a big bug right here"
+}
+
+### Second Invalid chirp
+
+POST {{baseURL}}/api/validate_chirp
+Content-Type: {{contentType}}
+
+{
+  "": ""
+}
+
+
+### Create a new user
+POST {{baseURL}}/api/users
+Content-Type: {{contentType}}
+
+{
+  "email": "saul@bettercall.com",
+  "password": "123456"
+}
+
+### second user
+POST {{baseURL}}/api/users
+Content-Type: {{contentType}}
+
+{
+  "email": "walt@breakingbad.com",
+  "password": "123456"
+}
+
+### Remove users
+POST {{baseURL}}/admin/reset
+
+### CreateChirp
+### 2f2af4b9-5145-40c4-9960-cadba62407b5
+POST {{baseURL}}/api/chirps
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJjaGlycHkiLCJzdWIiOiIyZjJhZjRiOS01MTQ1LTQwYzQtOTk2MC1jYWRiYTYyNDA3YjUiLCJleHAiOjE3NjczOTkzMjUsImlhdCI6MTc2NzM5NTcyNX0.ZwcgW7Q3y9-KuKf34uqVtJAd9reNfkmJgoZDaPEc89M
+Content-Type: {{contentType}}
+
+{
+  "body": "Clearly 67"
+}
+
+### Get All Chirps
+GET {{baseURL}}/api/chirps
+
+
+### Login as mike
+POST {{baseURL}}/api/login
+
+{
+  "email": "walt@breakingbad.com",
+  "password": "123456"
+}
+### Login as saul
+POST {{baseURL}}/api/login
+
+{
+  "email": "saul@bettercall.com",
+  "password": "123456"
+}
+
+### Update user data
+PUT {{baseURL}}/api/users
+Authorization: Bearer 9ddae3629fc6733d8aab0d1f611c969632b0ac603fcbc54985603d891fe5fc68
+Content-Type: {{contentType}}
+
+{
+  "email": "walter@breakingbad.com",
+  "password": "losPollosHermanos"
+}
+
+
+### Deleting Chirp
+DELETE {{baseURL}}/api/chirps/ddab6743-516e-4ecd-a139-a8b6028a1395
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJjaGlycHkiLCJzdWIiOiJkZGFiNjc0My01MTZlLTRlY2QtYTEzOS1hOGI2MDI4YTEzOTUiLCJleHAiOjE3NjczNjk4MjEsImlhdCI6MTc2NzM2NjIyMX0.3hxrSrVqXe-9cKlkdCnVK8RDHPn3gPIZjkiGsJ7nQO4
+Content-Type: {{contentType}}
+
+### Get single chirp
+GET {{baseURL}}/api/chirps/2f2af4b9-5145-40c4-9960-cadba62407b5
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJjaGlycHkiLCJzdWIiOiIyZjJhZjRiOS01MTQ1LTQwYzQtOTk2MC1jYWRiYTYyNDA3YjUiLCJleHAiOjE3NjczOTkzMjUsImlhdCI6MTc2NzM5NTcyNX0.ZwcgW7Q3y9-KuKf34uqVtJAd9reNfkmJgoZDaPEc89M
+Content-Type: {{contentType}}
