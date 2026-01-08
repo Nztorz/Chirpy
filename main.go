@@ -8,6 +8,7 @@ import (
 	"net/http"
 	"os"
 	"regexp"
+	"sort"
 	"strings"
 	"sync/atomic"
 	"time"
@@ -211,6 +212,8 @@ func main() {
 		}
 
 		s := r.URL.Query().Get("author_id")
+		sortType := r.URL.Query().Get("sort")
+
 		var chirps []database.Chirp
 
 		if s == "" {
@@ -241,6 +244,12 @@ func main() {
 				UpdatedAt: i.UpdatedAt,
 				Body:      i.Body,
 				UserID:    i.UserID,
+			})
+		}
+
+		if sortType == "desc" {
+			sort.Slice(responseChirps, func(i, j int) bool {
+				return responseChirps[i].CreatedAt.After(responseChirps[j].CreatedAt)
 			})
 		}
 
