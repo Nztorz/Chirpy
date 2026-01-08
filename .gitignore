@@ -1,32 +1,70 @@
-# If you prefer the allow list template instead of the deny list, see community template:
-# https://github.com/github/gitignore/blob/main/community/Golang/Go.AllowList.gitignore
-#
-# Binaries for programs and plugins
-*.exe
-*.exe~
-*.dll
-*.so
-*.dylib
+# ======================
+# OS files
+# ======================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
 
-# Test binary, built with `go test -c`
-*.test
+# ======================
+# Editor / IDE
+# ======================
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+!.vscode/launch.json
+!.vscode/tasks.json
 
-# Code coverage profiles and other test artifacts
-*.out
-coverage.*
-*.coverprofile
-profile.cov
+.idea/
+*.swp
+*.swo
+*.tmp
 
-# Dependency directories (remove the comment below to include it)
-# vendor/
+# ======================
+# Logs
+# ======================
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
-# Go workspace file
-go.work
-go.work.sum
-
-# env file
+# ======================
+# Environment variables
+# ======================
 .env
+.env.*
+!.env.example
 
-# Editor/IDE
-# .idea/
-# .vscode/
+# ======================
+# Build artifacts
+# ======================
+dist/
+build/
+out/
+bin/
+tmp/
+
+# ======================
+# Dependency directories
+# ======================
+node_modules/
+vendor/
+
+# ======================
+# Coverage / test output
+# ======================
+coverage/
+*.cover
+*.out
+test-results/
+
+# ======================
+# Archives
+# ======================
+*.zip
+*.tar
+*.tar.gz
+*.rar
